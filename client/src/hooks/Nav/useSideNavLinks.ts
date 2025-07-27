@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { MessageSquareQuote, ArrowRightToLine, Settings2, Database, Bookmark } from 'lucide-react';
+import { MessageSquareQuote, ArrowRightToLine, Settings2, Database, Bookmark, Globe } from 'lucide-react';
 import {
   isAssistantsEndpoint,
   isAgentsEndpoint,
@@ -19,6 +19,7 @@ import { Blocks, MCPIcon, AttachmentIcon } from '~/components/svg';
 import Parameters from '~/components/SidePanel/Parameters/Panel';
 import FilesPanel from '~/components/SidePanel/Files/Panel';
 import MCPPanel from '~/components/SidePanel/MCP/MCPPanel';
+import LanguageToggle from '~/components/Nav/LanguageToggle';
 import { useGetStartupConfig } from '~/data-provider';
 import { useHasAccess } from '~/hooks';
 
@@ -166,6 +167,14 @@ export default function useSideNavLinks({
         Component: MCPPanel,
       });
     }
+
+    links.push({
+      title: 'com_nav_language',
+      label: '',
+      icon: Globe,
+      id: 'language-toggle',
+      Component: LanguageToggle,
+    });
 
     links.push({
       title: 'com_sidepanel_hide_panel',
